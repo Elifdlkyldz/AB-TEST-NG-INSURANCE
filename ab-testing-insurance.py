@@ -1,3 +1,6 @@
+##AB TEST INSURANCE
+
+
 import itertools
 import numpy as np
 import pandas as pd
@@ -15,11 +18,13 @@ pd.set_option('display.float_format', lambda x: '%.5f' % x)
 
 
 ##VERİ SETİ HİKAYESİ:
+
 #Farklı yaştaki,cinsiyetteki hastaların tedavi maliyetlerine ayrılmış bir veri setini inceleyeceğiz.
 #Hastaların teşhisine ilişkin verilerimiz yok.
 # Ancak AB testini uygulayabileceğimiz başka bilgilere sahibiz.
 
-#VERİ SETİNDEKİ DEĞİŞKENLERİM;
+#VERİ SETİNDEKİ DEĞİŞKENLER;
+
 #age : Hastaların yaşı
 # sex : Hastaların cinsiyeti
 # bmi(body mass index): Vücut Kitle Endeksi
@@ -29,6 +34,9 @@ pd.set_option('display.float_format', lambda x: '%.5f' % x)
 # charges : Hastane masrafı
 
 
+
+###Veriyi Anlama ve Hazırlama
+
 df_= pd.read_csv(r"C:\Users\elifd\PycharmProjects\pythonProject1\examples\insurance.csv")
 df =df_.copy()
 df.head()
@@ -36,8 +44,6 @@ df.tail()
 df.describe().T
 df.shape
 df.isnull().sum()
-
-
 
 
 df.groupby("sex").agg({"charges": "mean"})
